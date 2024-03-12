@@ -177,7 +177,7 @@ const createSearchElements = (cat, action) => {
             openBtn.id = `iconOpen-${cat+'_'+i}`;
             switch (action){
                 case 'buscar':
-                    openBtn.classList.add('bx', 'bx-dots-horizontal-rounded');
+                    openBtn.classList.add('bx', 'bx-info-circle');
                     break;
                 case 'editar':
                     openBtn.classList.add('bx', 'bx-edit');
