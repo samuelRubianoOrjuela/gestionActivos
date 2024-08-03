@@ -58,6 +58,7 @@ li {
 }
 .titulo{
 	margin-right: 20px;
+	padding-bottom: 2px;
 	color: var(--blue);
 	transition: all .3s ease;
 }
