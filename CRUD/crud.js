@@ -1,4 +1,4 @@
-const URL_API = "http://localhost:3000/"
+const URL_API = "http://localhost:8080/"
 const myHeaders = new Headers({
     "Content-Type": "application/json"
 });
@@ -26,20 +26,17 @@ const getOptions = (endPoint, select, selected) => {
         });
 }
 
-const getData = (endPoint) => {
-    return fetch(`${URL_API + endPoint}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            return data;
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+const getData = async (endPoint) => {
+    try {
+        const response = await fetch(`${URL_API + "clientes"}`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }
 
 const loadData = (endPoint, newDict) => {

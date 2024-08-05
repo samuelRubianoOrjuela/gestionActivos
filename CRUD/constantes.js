@@ -157,6 +157,7 @@ const createSearchElements = (cat, action) => {
     document.querySelector('#content').append(container);
 
     getData(cat).then(data => {
+        console.log(data);
         data.forEach((element, i) => {
             let box = document.createElement('div');
             box.id = `box-${cat+'_'+i}`;
@@ -214,7 +215,7 @@ const createSearchElements = (cat, action) => {
         });
     });
 }
-
+ 
 const createDomElements = (action, cat) => {
     switch (action) {
         case 'agregar':
