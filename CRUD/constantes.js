@@ -3,13 +3,13 @@ import {
     getData,
     deleteData
 } from './crud.js';
-import { loadDataActivos } from './activos.js';
-import { loadDataEstados } from './estado.js';
-import { loadDataMarcas } from './marcas.js';
-import { loadDataPersonas } from './personas.js';
-import { loadDataTipoActivos } from './tipoActivos.js';
-import { loadDataTipoMovAct } from './tipoMovAct.js';
-import { loadDataTipoPersona } from './tipoPersona.js';
+// import { loadDataActivos } from './productos.js';
+// import { loadDataEstados } from './clientes.js';
+// import { loadDataMarcas } from './pedidos.js';
+// import { loadDataPersonas } from './empleados.js';
+// import { loadDataTipoActivos } from './pagos.js';
+// import { loadDataTipoMovAct } from './oficinas.js';
+// import { loadDataTipoPersona } from './tipoPersona.js';
 let name, text, number, select, label, container, div, search, searchInput, openBtn, input, button, box, submit, dialog, closeBtn;
 
 const info = {
@@ -66,24 +66,24 @@ const info = {
     },
 }
 
-const whichFunction = (cat, action, id) => {
-    switch (cat) {
-        case 'activos':
-            loadDataActivos(action, id);
-        case 'marcas':
-            loadDataMarcas(action, id);
-        case 'personas':
-            loadDataPersonas(action, id);
-        case 'estados':
-            loadDataEstados(action, id);
-        case 'tipoPersona':
-            loadDataTipoPersona(action, id);
-        case 'tipoMovAct':
-            loadDataTipoMovAct(action, id);
-        case 'tipoActivos':
-            loadDataTipoActivos(action, id);
-    }
-}
+// const whichFunction = (cat, action, id) => {
+//     switch (cat) {
+//         case 'activos':
+//             loadDataActivos(action, id);
+//         case 'marcas':
+//             loadDataMarcas(action, id);
+//         case 'personas':
+//             loadDataPersonas(action, id);
+//         case 'estados':
+//             loadDataEstados(action, id);
+//         case 'tipoPersona':
+//             loadDataTipoPersona(action, id);
+//         case 'tipoMovAct':
+//             loadDataTipoMovAct(action, id);
+//         case 'tipoActivos':
+//             loadDataTipoActivos(action, id);
+//     }
+// }
 
 const removeElements = () => {
     const containers = document.querySelectorAll('.container');
@@ -216,32 +216,56 @@ const createSearchElements = (cat, action) => {
     });
 }
  
-const createDomElements = (action, cat) => {
-    switch (action) {
-        case 'agregar':
-            removeElements();
-            container = document.createElement('form');
-            container.classList.add('container', action);
-            container.id = `${action}-${cat}`;
-            name = document.createElement('h1');
-            name.textContent = action[0].toUpperCase()+action.slice(1)+' '+info[cat].name[1];
-            container.appendChild(name);
-            createFormElements(action, container, '', cat);
-            submit = document.createElement('button');
-            submit.classList.add('submit-button', `submit-${cat}`);
-            submit.setAttribute('type', 'submit')
-            submit.innerHTML = '+'
-            container.appendChild(submit);   
-            document.querySelector('#content').append(container);  
-            container.addEventListener('submit', (e) => {
-                e.preventDefault();
-                whichFunction(cat, action, '');
-            })
-            break;
-        default:
-            removeElements();
-            createSearchElements(cat, action);
-    }
+const createOficinaElements = () => {
+    const mainTag = document.getElementById('main');
+    mainTag.innerHTML = `
+        <div class="botones">
+            <ul>
+                <li class="boton active">Agregar</li>
+                <li class="boton">Editar</li>
+                <li class="boton">Consultar</li>
+                <li class="boton">Eliminar</li>
+            </ul>
+        </div>
+        <div class="ventanas">
+            <ul>
+                <li class="ventana active">
+                    <div class="container">
+                        <form>
+                            <label for="select-ciudad">Ciudad: </label>
+                            <select name="" id="select-ciudad"></select>
+                            <label for="input-telefono">Telefono: </label>
+                            <input type="number" id="input-telefono">
+                            <label for="input-direccion1">Direccion 1: </label>
+                            <input type="text" id="input-direccion1">
+                            <label for="input-direccion2">Direccion 2: </label>
+                            <input type="text" id="input-direccion2">
+                            <button class="submit-button">+</button>
+                        </form>
+                    </div>
+                </li>
+                <li class="ventana">EditarEditar</li>
+                <li class="ventana">ConsultarConsultar</li>
+                <li class="ventana">EliminarEliminar</li>
+            </ul>
+        </div>
+    `;
+    const botones = document.querySelectorAll('.boton');
+	const ventanas = document.querySelectorAll('.ventana');
+    
+	botones.forEach((b, i) => {
+		b.addEventListener('click', () => {
+
+			botones.forEach((b, i) => {
+				ventanas[i].classList.remove('active');
+				b.classList.remove('active');
+			})
+			ventanas[i].classList.toggle('active');
+			b.classList.toggle('active');
+		})
+	})
+
+
 }
 
 const createFormElements = (action, container, arrayElement, cat) => {
@@ -287,6 +311,6 @@ const createFormElements = (action, container, arrayElement, cat) => {
 }
 
 export {
-    createDomElements,
+    createOficinaElements,
     createFormElements
 }; 

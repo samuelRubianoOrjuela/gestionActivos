@@ -14,7 +14,6 @@ allDropdown.forEach(item=> {
 				i.classList.remove('show');
 			})
 		}
-
 		this.classList.toggle('active');
 		item.classList.toggle('show');
 	})
@@ -47,13 +46,18 @@ toggleSidebar.addEventListener('click', function () {
 		allSideDivider.forEach(item=> {
 			item.textContent = '-'
 		})
-
+		
 		allDropdown.forEach(item=> {
 			const a = item.parentElement.querySelector('a:first-child');
+			a.classList.toggle('hide');
 			a.classList.remove('active');
 			item.classList.remove('show');
 		})
 	} else {
+		allDropdown.forEach(item => {
+			const a = item.parentElement.querySelector('a:first-child');
+			a.classList.remove('hide');
+		})
 		allSideDivider.forEach(item=> {
 			item.textContent = item.dataset.text;
 		})
@@ -65,6 +69,7 @@ sidebar.addEventListener('mouseleave', function () {
 		titulo.style.opacity = '0';
 		allDropdown.forEach(item=> {
 			const a = item.parentElement.querySelector('a:first-child');
+			a.classList.toggle('hide');
 			a.classList.remove('active');
 			item.classList.remove('show');
 		})
@@ -80,6 +85,7 @@ sidebar.addEventListener('mouseenter', function () {
 	if(this.classList.contains('hide')) {
 		allDropdown.forEach(item=> {
 			const a = item.parentElement.querySelector('a:first-child');
+			a.classList.remove('hide');
 			a.classList.remove('active');
 			item.classList.remove('show');
 		})
@@ -131,4 +137,31 @@ window.addEventListener('click', function (e) {
 const allProgress = document.querySelectorAll('main .card .progress');
 allProgress.forEach(item=> {
 	item.style.setProperty('--value', item.dataset.value)
+})
+
+const opciones = document.querySelectorAll('.opMenu');
+const formularios = document.getElementById('formularios-container');
+
+opciones.forEach(opcion => {
+	opcion.addEventListener('click', () => {
+		if(!opcion.classList.contains('active')){
+			formularios.classList.toggle('active');
+		} else {
+			formularios.classList.remove('active');
+		}
+	});
+})
+
+const botones = document.querySelectorAll('.boton');
+const ventanas = document.querySelectorAll('.ventana');
+
+botones.forEach((b, i) => {
+	b.addEventListener('click', () => {
+		botones.forEach((b, i) => {
+			ventanas[i].classList.remove('active');
+			b.classList.remove('active');
+		})
+		ventanas[i].classList.toggle('active');
+		b.classList.toggle('active');
+	})
 })

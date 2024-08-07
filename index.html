@@ -19,55 +19,30 @@
 			</div>
 		</div>	
 		<ul class="side-menu">
-			<li class="opMenu opAgregar">
-				<a href="#"><i class='bx bx-plus-medical icon' ></i> Agregar <i class='bx bx-chevron-right icon-right' ></i></a>
-				<ul class="side-dropdown">
-					<li><button id="agregarActivos">Activos</button></li>
-					<li><button id="agregarMarcas">Marcas</button></li>
-					<li><button id="agregarPersonas">Persona</button></li>
-					<li><button id="agregarEstados">Estado</button></li>
-					<li><button id="agregarTipoPersona">Tipo de persona</button></li>
-					<li><button id="agregarTipoMovAct">Tipo de movimiendo del activo</button></li>
-					<li><button id="agregarTipoActivos">Tipo de activo</button></li>
-				</ul>
-			</li>
-			<li class="opMenu opEditar">
-				<a href="#"><i class='bx bxs-edit icon' ></i> Editar <i class='bx bx-chevron-right icon-right' ></i></a>
-				<ul class="side-dropdown">
-					<li><button id="editarActivos">Activos</button></li>
-					<li><button id="editarMarcas">Marcas</button></li>
-					<li><button id="editarPersonas">Persona</button></li>
-					<li><button id="editarEstados">Estado</button></li>
-					<li><button id="editarTipoPersona">Tipo de persona</button></li>
-					<li><button id="editarTipoMovAct">Tipo de movimiendo del activo</button></li>
-					<li><button id="editarTipoActivos">Tipo de activo</button></li>
-				</ul>
-			</li>
+            <li class="opMenu">
+                <a href="#" id="opProductos"> Productos <i class='bx bx-chevron-right icon-right' ></i></a>
+				<ul class="side-dropdown"></ul>
+            </li>
+            <li class="opMenu">
+                <a href="#" id="opClientes"> Clientes <i class='bx bx-chevron-right icon-right' ></i></a>
+				<ul class="side-dropdown"></ul>
+            </li>
+            <li class="opMenu">
+                <a href="#" id="opPedidos"> Pedidos <i class='bx bx-chevron-right icon-right' ></i></a>
+				<ul class="side-dropdown"></ul>
+            </li>
+            <li class="opMenu">
+                <a href="#" id="opPagos"> Pagos <i class='bx bx-chevron-right icon-right' ></i></a>
+				<ul class="side-dropdown"></ul>
+            </li>
+            <li class="opMenu">
+                <a href="#" id="opEmpleados"> Empleados <i class='bx bx-chevron-right icon-right' ></i></a>
+				<ul class="side-dropdown"></ul>
+            </li>
 			
-			<li class="opMenu opEliminar">
-				<a href="#"><i class='bx bxs-trash icon' ></i> Eliminar <i class='bx bx-chevron-right icon-right' ></i></a>
-				<ul class="side-dropdown">
-					<li><button id="eliminarActivos">Activos</button></li>
-					<li><button id="eliminarMarcas">Marcas</button></li>
-					<li><button id="eliminarPersonas">Persona</button></li>
-					<li><button id="eliminarEstados">Estado</button></li>
-					<li><button id="eliminarTipoPersona">Tipo de persona</button></li>
-					<li><button id="eliminarTipoMovAct">Tipo de movimiendo del activo</button></li>
-					<li><button id="eliminarTipoActivos">Tipo de activo</button></li>
-				</ul>
-			</li>
-			
-			<li class="opMenu opBusqueda">
-				<a href="#"><i class='bx bx-search icon' ></i> Buscar <i class='bx bx-chevron-right icon-right' ></i></a>
-				<ul class="side-dropdown">
-					<li><button id="buscarActivos">Activos</button></li>
-					<li><button id="buscarMarcas">Marcas</button></li>
-					<li><button id="buscarPersonas">Persona</button></li>
-					<li><button id="buscarEstado">Estado</button></li>
-					<li><button id="buscarTipoPersona">Tipo de persona</button></li>
-					<li><button id="buscarTipoMovAct">Tipo de movimiendo del activo</button></li>
-					<li><button id="buscarTipoActivos">Tipo de activo</button></li>
-				</ul>
+			<li class="opMenu">
+				<a href="#" id="opOficinas"> Oficinas <i class='bx bx-chevron-right icon-right' ></i></a>
+				<ul class="side-dropdown"></ul>
 			</li>
 		</ul>
 	</section>
@@ -88,10 +63,30 @@
 				</ul>
 			</div>
 		</nav>
-		
+		<main id="main">
+			<section id="formularios-container">
+				<div class="botones">
+					<ul>
+						<li class="boton active" id="boton-agregar">Agregar</li>
+						<li class="boton" id="boton-editar">Editar</li>
+						<li class="boton" id="boton-buscar">Consultar</li>
+						<li class="boton" id="boton-borrar">Eliminar</li>
+					</ul>
+				</div>
+				<div class="ventanas">
+					<ul>
+						<li class="ventana active" id="ventana-agregar"></li>
+						<li class="ventana" id="ventana-editar"></li>
+						<li class="ventana" id="ventana-buscar"></li>
+						<li class="ventana" id="ventana-borrar"></li>
+					</ul>
+				</div>
+			</section>
+		</main>
 	</section>
 	<!-- NAVBAR -->
 	<script src="./js/main.js" async></script>
 	<script src="./app.js" defer type="module"></script>
+
 </body>
 </html>
